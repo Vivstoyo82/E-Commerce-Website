@@ -2,7 +2,7 @@ import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import "./ProductCard.css";
 
-function ProductCard(props) {
+const ProductCard = (props) => {
   return (
     <Card
       style={{

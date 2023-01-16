@@ -6,7 +6,7 @@ import ProductCard from "../ProductCard/ProductCard";
 import Title from "../Title/Title";
 import { Button } from "react-bootstrap";
 
-const productsArr = [
+const products = [
   {
     title: "Colors",
     price: 100,
@@ -56,7 +56,7 @@ function ProductPage() {
       <Container>
         <Title>Music collections</Title>
         <Row>
-          {productsArr.map((product) => {
+          {products.map((product) => {
             return (
               <Col xs={3}>
                 <ProductCard
