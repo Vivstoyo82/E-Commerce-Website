@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Fragment } from "react";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
@@ -59,26 +59,28 @@ const ProductPage = (props) => {
           E-Commerce
         </h1>
       </div>
-      <Container>
-        <Title>Music collections</Title>
-        <Row>
-          {products.map((product) => {
-            return (
-              <Col xs={3}>
-                <ProductCard
-                  key={product.id}
-                  title={product.title}
-                  price={product.price}
-                  imageUrl={product.imageUrl}
-                ></ProductCard>
-              </Col>
-            );
-          })}
-        </Row>
-      </Container>
-      <div className="d-flex justify-content-center p-3 mt-4">
-        <Button variant="outline-primary">See the cart</Button>
-      </div>
+      <Fragment>
+        <Container>
+          <Title>Music collections</Title>
+          <Row>
+            {products.map((product) => {
+              return (
+                <Col xs={3}>
+                  <ProductCard
+                    key={product.id}
+                    title={product.title}
+                    price={product.price}
+                    imageUrl={product.imageUrl}
+                  ></ProductCard>
+                </Col>
+              );
+            })}
+          </Row>
+        </Container>
+        <div className="d-flex justify-content-center p-3 mt-4">
+          <Button variant="outline-primary">See the cart</Button>
+        </div>
+      </Fragment>
     </div>
   );
 }

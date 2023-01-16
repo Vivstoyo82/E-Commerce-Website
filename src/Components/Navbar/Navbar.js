@@ -5,7 +5,6 @@ import Navbar from "react-bootstrap/Navbar";
 import CartIcon from "../Cart/CartIcon";
 import "./Navbar.css";
 import CartContext from "../../Store/CartContext";
-import { NavLink } from "react-router-dom";
 
 const NavigationBar = (props) => {
   const cartHandler = () => {

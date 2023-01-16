@@ -24,12 +24,12 @@ const App = () => {
       <CartProvider >
         {cartIsShown && <Cart onCartClose={cartCloseHandler}></Cart>}
         <Route path="/about">
-          <About></About>
+          <About />
         </Route>
         <Route path="/store">
           <NavigationBar onCartClick={cartClickHandler}></NavigationBar>
-          <ProductPage></ProductPage>
-          <Footer></Footer>
+          <ProductPage />
+          <Footer />
         </Route>
       </CartProvider>
     </div>
