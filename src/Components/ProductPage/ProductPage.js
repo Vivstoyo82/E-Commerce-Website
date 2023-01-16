@@ -11,35 +11,41 @@ const products = [
     title: "Colors",
     price: 100,
     imageUrl: "https://prasadyash2411.github.io/ecom-website/img/Album%201.png",
+    id: Math.random() * 10000000
   },
   {
     title: "Black and white Colors",
     price: 50,
     imageUrl: "https://prasadyash2411.github.io/ecom-website/img/Album%202.png",
+    id: Math.random() * 10000000
   },
   {
     title: "Yellow and Black Color",
     price: 70,
     imageUrl: "https://prasadyash2411.github.io/ecom-website/img/Album%203.png",
+    id: Math.random() * 10000000
   },
   {
     title: "Blue Color",
     price: 100,
     imageUrl: "https://prasadyash2411.github.io/ecom-website/img/Album%204.png",
+    id: Math.random() * 10000000
   },
   {
     title: "Colors",
     price: 100,
     imageUrl: "https://prasadyash2411.github.io/ecom-website/img/Album%201.png",
+    id: Math.random() * 10000000
   },
   {
     title: "Black and white Colors",
     price: 50,
     imageUrl: "https://prasadyash2411.github.io/ecom-website/img/Album%202.png",
+    id: Math.random() * 1000000
   },
 ];
 
-function ProductPage() {
+const ProductPage = (props) => {
   return (
     <div>
       <div
@@ -60,6 +66,7 @@ function ProductPage() {
             return (
               <Col xs={3}>
                 <ProductCard
+                  key={product.id}
                   title={product.title}
                   price={product.price}
                   imageUrl={product.imageUrl}

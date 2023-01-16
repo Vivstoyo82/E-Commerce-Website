@@ -6,24 +6,27 @@ import NavigationBar from "./Components/Navbar/Navbar";
 import ProductPage from "./Components/ProductPage/ProductPage";
 import Footer from "./Components/Footer/Footer";
 import Cart from "./Components/Cart/Cart";
+import CartProvider from './Store/CartProvider';
 
 const App = () => {
-const [cartIsShown, setCartIsShown] = useState(false);
+  const [cartIsShown, setCartIsShown] = useState(false);
 
 
-const cartClickHandler = () => {
-  setCartIsShown(true);
-}
+  const cartClickHandler = () => {
+    setCartIsShown(true);
+  }
 
-const cartCloseHandler = () => {
-  setCartIsShown(false);
-}
+  const cartCloseHandler = () => {
+    setCartIsShown(false);
+  }
   return (
     <div className="App" style={{ backgroundColor: "#84CEEB" }}>
-      <NavigationBar onCartClick={cartClickHandler}></NavigationBar>
-      {cartIsShown && <Cart onCartClose={cartCloseHandler}></Cart>}
-      <ProductPage></ProductPage>
-      <Footer></Footer>
+      <CartProvider className="App">
+        <NavigationBar onCartClick={cartClickHandler}></NavigationBar>
+        {cartIsShown && <Cart onCartClose={cartCloseHandler}></Cart>}
+        <ProductPage></ProductPage>
+        <Footer></Footer>
+      </CartProvider>
     </div>
   );
 }

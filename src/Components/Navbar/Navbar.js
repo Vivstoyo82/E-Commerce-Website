@@ -1,14 +1,22 @@
-import React from "react";
+import React, { useContext } from "react";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import CartIcon from "../Cart/CartIcon";
 import "./Navbar.css";
+import CartContext from "../../Store/CartContext";
 
 const NavigationBar = (props) => {
-    const cartHandler = () => {
-      props.onCartClick();
-    }
+  const cartHandler = () => {
+    props.onCartClick();
+  }
+
+  const cartCtx = useContext(CartContext);
+  let quantity = 0;
+  cartCtx.products.forEach((product) => {
+    quantity = quantity + (Number (product.quantity));
+  });
+
   return (
     <header>
       <Navbar
@@ -36,7 +44,7 @@ const NavigationBar = (props) => {
             <span className="icon">
               <CartIcon />
             </span>
-            <div className="badge">2</div>
+            <div className="badge">{quantity}</div>
           </button>
         </Container>
       </Navbar>
