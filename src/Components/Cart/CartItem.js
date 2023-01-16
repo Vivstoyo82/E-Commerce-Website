@@ -1,4 +1,4 @@
-import React, {useContext} from "react";
+import React, { Fragment, useContext } from "react";
 import CartContext from "../../Store/CartContext";
 
 const CartItem = (props) => {
@@ -6,7 +6,7 @@ const CartItem = (props) => {
 
     const removeProductCartHandler = () => {
         cartCtx.removeItem(props.id);
-      };
+    };
 
     return (
         <div
@@ -28,22 +28,25 @@ const CartItem = (props) => {
                 ></img>
                 <span className=" ms-3">{props.title}</span>
             </div>
-            <div className=" d-flex justify-content-around align-items-center w-75">
-                <div>{props.price}</div>
-                <div>
-                    <input
-                        type="number"
-                        min="0"
-                        step="1"
-                        defaultValue={props.quantity}
-                        className=" rounded "
-                        style={{ width: "50px" }}
-                    ></input>
+            <Fragment>
+                <div className=" d-flex justify-content-around align-items-center w-75">
+                    <div>{props.price}</div>
+                    <div>
+                        <input
+                            type="number"
+                            min="0"
+                            step="1"
+                            defaultValue={props.quantity}
+                            className=" rounded "
+                            style={{ width: "50px" }}
+                        ></input>
+                    </div>
                 </div>
-            </div>
-            <div>
-                <button className="btn btn-danger" onClick={removeProductCartHandler}> Remove</button>
-            </div>
+                <div>
+                    <button className="btn btn-danger" onClick={removeProductCartHandler}> Remove</button>
+                </div>
+
+            </Fragment >
         </div>
     );
 };

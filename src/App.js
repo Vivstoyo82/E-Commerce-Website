@@ -1,5 +1,3 @@
-// import logo from './logo.svg';
-import logo from './logo.svg';
 import './App.css';
 import React, { useState } from "react";
 import NavigationBar from "./Components/Navbar/Navbar";
@@ -7,6 +5,8 @@ import ProductPage from "./Components/ProductPage/ProductPage";
 import Footer from "./Components/Footer/Footer";
 import Cart from "./Components/Cart/Cart";
 import CartProvider from './Store/CartProvider';
+import About from './Pages/About';
+import { Route } from "react-router-dom";
 
 const App = () => {
   const [cartIsShown, setCartIsShown] = useState(false);
@@ -21,11 +21,16 @@ const App = () => {
   }
   return (
     <div className="App" style={{ backgroundColor: "#84CEEB" }}>
-      <CartProvider className="App">
-        <NavigationBar onCartClick={cartClickHandler}></NavigationBar>
+      <CartProvider >
         {cartIsShown && <Cart onCartClose={cartCloseHandler}></Cart>}
-        <ProductPage></ProductPage>
-        <Footer></Footer>
+        <Route path="/about">
+          <About></About>
+        </Route>
+        <Route path="/store">
+          <NavigationBar onCartClick={cartClickHandler}></NavigationBar>
+          <ProductPage></ProductPage>
+          <Footer></Footer>
+        </Route>
       </CartProvider>
     </div>
   );

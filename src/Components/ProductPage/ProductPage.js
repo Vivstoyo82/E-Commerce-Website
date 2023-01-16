@@ -56,7 +56,7 @@ const ProductPage = (props) => {
         className="d-flex justify-content-center align-items-center"
       >
         <h1 style={{ fontSize: "80px", fontFamily: "brush-script" }}>
-          E-Commerce-Store
+          E-Commerce
         </h1>
       </div>
       <Container>
