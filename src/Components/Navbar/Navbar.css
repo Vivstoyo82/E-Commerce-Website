@@ -32,9 +32,7 @@
     border-radius: 25px;
     font-weight: bold;
   }
-  a:hover {
-    color: rgb(185, 206, 50);
-  }
+  a:hover ,
   a.active {
     color: rgb(185, 206, 50);
   }

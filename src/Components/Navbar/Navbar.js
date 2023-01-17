@@ -34,19 +34,19 @@ const NavigationBar = (props) => {
               <Nav.Link
                 activeClassName="active"
                 to="/home"
-                className="me-5 nav-item fs-5 ">
+                className="me-5 nav-item fs-4 ">
                 Home
               </Nav.Link>
               <Nav.Link
                 activeClassName="active"
                 to="/store"
-                className="me-5 nav-item fs-5 ">
+                className="me-5 nav-item fs-4 ">
                 Store
               </Nav.Link>
               <Nav.Link
                 activeClassName="active"
                 to="/about"
-                className="me-5 nav-item fs-5 ">
+                className="me-5 nav-item fs-4 ">
                 About
               </Nav.Link>
             </Nav>
@@ -58,6 +58,17 @@ const NavigationBar = (props) => {
             </button>
           </Container>
         </Navbar>
+        <div
+          style={{
+            height: "250px",
+            backgroundColor: "#EB84CE",
+          }}
+          className="d-flex justify-content-center align-items-center pt-5"
+        >
+          <h1 style={{ fontSize: "90px", fontFamily: "brush-script" }}>
+            E-commerce
+          </h1>
+        </div>
       </Fragment>
     </header>
   );
