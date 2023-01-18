@@ -49,6 +49,12 @@ const NavigationBar = (props) => {
                 className="me-5 nav-item fs-4 ">
                 About
               </Nav.Link>
+              <Nav.Link
+                activeClassName="active"
+                to="/contact"
+                className="me-5 nav-item fs-4 ">
+                Contact Us
+              </Nav.Link>
             </Nav>
             <button className="button" onClick={cartHandler}>
               <span className="icon">
@@ -61,7 +67,7 @@ const NavigationBar = (props) => {
         <div
           style={{
             height: "250px",
-            backgroundColor: "#EB84CE",
+            backgroundColor: "#FFFFFF",
           }}
           className="d-flex justify-content-center align-items-center pt-5"
         >

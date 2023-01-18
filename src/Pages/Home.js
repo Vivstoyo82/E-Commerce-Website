@@ -14,16 +14,16 @@ const Home = () => {
 
       <div style={{
             height: "70px",
-            backgroundColor: "#EB84CE",
+            backgroundColor: "#FFFFFF",
           }}
           className=" justify-content-center align-items-center ">
-        <button className="btn btn-outline-light">
+        <button className="btn btn-outline-dark">
           <h5>Get Our Latest Album</h5>
         </button>
       </div>
       <div style={{
             height: "150px",
-            backgroundColor: "#EB84CE",
+            backgroundColor: "#FFFFFF",
           }}
           className=" justify-content-center align-items-center ">
         <a href="#" className="">

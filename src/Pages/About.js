@@ -10,7 +10,6 @@ const About = () => {
     return (
         <Fragment>
             <NavigationBar></NavigationBar>
-
             <div>
                 <Container>
                     <Title>About Us</Title>

@@ -8,6 +8,8 @@ import CartProvider from './Store/CartProvider';
 import About from './Pages/About';
 import { Route } from "react-router-dom";
 import Home from './Pages/Home';
+import Contact from './Pages/Contact';
+import axios from 'axios';
 
 const App = () => {
   const [cartIsShown, setCartIsShown] = useState(false);
@@ -20,6 +22,14 @@ const App = () => {
   const cartCloseHandler = () => {
     setCartIsShown(false);
   }
+
+  const userDetailPostHandler = (user) => {
+    axios.post("https://e-commerce-project-4b6e6-default-rtdb.firebaseio.com/userDetails.json",
+      {
+        body: JSON.stringify(user),
+      })
+  };
+
   return (
     <div className="App" style={{ backgroundColor: "#84CEEB" }}>
       <CartProvider >
@@ -29,6 +39,9 @@ const App = () => {
         </Route>
         <Route path="/about">
           <About />
+        </Route>
+        <Route path="/contact">
+          <Contact userDetail={userDetailPostHandler}></Contact>
         </Route>
         <Route path="/store">
           <NavigationBar onCartClick={cartClickHandler}></NavigationBar>
