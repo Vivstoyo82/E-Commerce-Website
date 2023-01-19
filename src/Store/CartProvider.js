@@ -2,6 +2,46 @@ import React, { useState } from "react";
 import CartContext from "./CartContext";
 
 const CartProvider = (props) => {
+
+    const productDetails = [
+        {
+          title: "Colors",
+          price: 100,
+          imageUrl: "https://prasadyash2411.github.io/ecom-website/img/Album%201.png",
+          id: 1
+        },
+        {
+          title: "Black and white Colors",
+          price: 50,
+          imageUrl: "https://prasadyash2411.github.io/ecom-website/img/Album%202.png",
+          id: 2
+        },
+        {
+          title: "Yellow and Black Color",
+          price: 70,
+          imageUrl: "https://prasadyash2411.github.io/ecom-website/img/Album%203.png",
+          id: 3
+        },
+        {
+          title: "Blue Color",
+          price: 100,
+          imageUrl: "https://prasadyash2411.github.io/ecom-website/img/Album%204.png",
+          id: 4
+        },
+        {
+          title: "Colors",
+          price: 100,
+          imageUrl: "https://prasadyash2411.github.io/ecom-website/img/Album%201.png",
+          id: 5
+        },
+        {
+          title: "Black and white Colors",
+          price: 50,
+          imageUrl: "https://prasadyash2411.github.io/ecom-website/img/Album%202.png",
+          id: 6
+        },
+      ];
+
     const [products, updateProducts] = useState([]);
 
     const addItemToCartHandler = (product) => {
@@ -10,12 +50,12 @@ const CartProvider = (props) => {
         });
         let existingProduct = products[idx];
         if (existingProduct) {
-            existingProduct.quantity = Number(existingProduct.quantity) + 1;
+            existingProduct.quantity = (existingProduct.quantity) + 1;
             updateProducts([...products]);
         } else {
             updateProducts([...products, product]);
         }
-        console.log(cartContext);
+        // console.log(products);
     };
 
     const removeItemFromCartHandler = (id) => {
@@ -27,6 +67,7 @@ const CartProvider = (props) => {
     };
 
     const cartContext = {
+        productDetails: productDetails,
         products: products,
         addItem: addItemToCartHandler,
         removeItem: removeItemFromCartHandler,

@@ -6,10 +6,11 @@ import Footer from "./Components/Footer/Footer";
 import Cart from "./Components/Cart/Cart";
 import CartProvider from './Store/CartProvider';
 import About from './Pages/About';
-import { Route } from "react-router-dom";
+import { Redirect,Route, Switch } from "react-router-dom";
 import Home from './Pages/Home';
 import Contact from './Pages/Contact';
 import axios from 'axios';
+import ProductInfo from './Pages/ProductInfo';
 
 const App = () => {
   const [cartIsShown, setCartIsShown] = useState(false);
@@ -31,24 +32,32 @@ const App = () => {
   };
 
   return (
-    <div className="App" style={{ backgroundColor: "#84CEEB" }}>
-      <CartProvider >
-        {cartIsShown && <Cart onCartClose={cartCloseHandler}></Cart>}
-        <Route path="/home">
-          <Home></Home>
-        </Route>
-        <Route path="/about">
-          <About />
-        </Route>
-        <Route path="/contact">
-          <Contact userDetail={userDetailPostHandler}></Contact>
-        </Route>
-        <Route path="/store">
-          <NavigationBar onCartClick={cartClickHandler}></NavigationBar>
-          <ProductPage />
-          <Footer />
-        </Route>
-      </CartProvider>
+    <div className="App" style={{ backgroundColor: "#33BCCC" }}>
+      <Switch>
+        <CartProvider >
+          {cartIsShown && <Cart onCartClose={cartCloseHandler}></Cart>}
+          <Route path="/" exact>
+            <Redirect to="/store"></Redirect>
+          </Route>
+          <Route path="/home">
+            <Home></Home>
+          </Route>
+          <Route path="/about">
+            <About />
+          </Route>
+          <Route path="/contact">
+            <Contact userDetail={userDetailPostHandler}></Contact>
+          </Route>
+          <Route path="/store">
+            <NavigationBar onCartClick={cartClickHandler}></NavigationBar>
+            <ProductPage openCart={cartClickHandler} />
+            <Footer />
+          </Route>
+          <Route path="/product_Info/:productId">
+            <ProductInfo></ProductInfo>
+          </Route>
+        </CartProvider>
+      </Switch>
     </div>
   );
 }

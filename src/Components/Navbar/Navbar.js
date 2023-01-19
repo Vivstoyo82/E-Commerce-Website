@@ -5,6 +5,7 @@ import Navbar from "react-bootstrap/Navbar";
 import CartIcon from "../Cart/CartIcon";
 import "./Navbar.css";
 import CartContext from "../../Store/CartContext";
+import { Link } from "react-router-dom";
 
 const NavigationBar = (props) => {
   const cartHandler = () => {
@@ -31,30 +32,30 @@ const NavigationBar = (props) => {
               E-Commerce
             </Navbar.Brand>
             <Nav className="ms-auto">
-              <Nav.Link
+              <Link
                 activeClassName="active"
                 to="/home"
-                className="me-5 nav-item fs-4 ">
+                className="me-5 nav-item fs-5 ">
                 Home
-              </Nav.Link>
-              <Nav.Link
+              </Link>
+              <Link
                 activeClassName="active"
                 to="/store"
-                className="me-5 nav-item fs-4 ">
+                className="me-5 nav-item fs-5 ">
                 Store
-              </Nav.Link>
-              <Nav.Link
+              </Link>
+              <Link
                 activeClassName="active"
                 to="/about"
-                className="me-5 nav-item fs-4 ">
+                className="me-5 nav-item fs-5 ">
                 About
-              </Nav.Link>
-              <Nav.Link
+              </Link>
+              <Link
                 activeClassName="active"
                 to="/contact"
-                className="me-5 nav-item fs-4 ">
+                className="me-5 nav-item fs-5 ">
                 Contact Us
-              </Nav.Link>
+              </Link>
             </Nav>
             <button className="button" onClick={cartHandler}>
               <span className="icon">

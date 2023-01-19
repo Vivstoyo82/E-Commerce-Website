@@ -16,12 +16,14 @@ const About = () => {
                     <Row>
                         <Col xs={6}>
                             <img
-                                src="https://plus.unsplash.com/premium_photo-1664298415497-60325b13618f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8bXVzaWMlMjBiYW5kfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60"
+                                style={{ marginRight:150, width: 500, height: 600 }}
+                                src="Images\pexels-ivan-bertolazzi-2681319.jpg"
                                 alt="music band"
-                            ></img>
+                            />
+                            <figcaption className='figure-caption-start d-flex align-items-start'><h4>What about us is what we are</h4></figcaption>
                         </Col>
-                        <Col xs={6}>
-                            <div className="p-2 border fw-bolder">
+                        <Col xs={5}>
+                            <div className="d-flex justify-content-md-center p-3 mb-0  fw-bolder">
                                 <p>
                                     Lorem ipsum carrots enhanced rebates. Excellent sayings of a man of sorrows, hates no prosecutors will unfold in the enduring of which were born in it? 
                                     Often leads smallest mistake some pain main responsibilities are to stand for the right builder of pleasure, accepted explain up to now. , 

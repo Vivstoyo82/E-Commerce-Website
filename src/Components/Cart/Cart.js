@@ -31,7 +31,8 @@ const Cart = (props) => {
     let total = 0;
     // let cartItems = CartCtx.products.map((product) => {
 
-    let cartElements = cartCtx.products.map((product) => {
+    let cartElements = cartCtx.products.map((product) => { 
+        // console.log(product.id)
         total = total + product.price * product.quantity;
         return (
             <CartItem

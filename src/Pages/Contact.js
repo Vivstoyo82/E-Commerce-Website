@@ -41,12 +41,12 @@ const Contact = (props) => {
                 <form
                     onSubmit={submitHandler}
                     className="shadow  rounded-4 p-4 "
-                    style={{ width: "600px", backgroundColor: "#84EBD4" }}
+                    style={{ width: "600px", backgroundColor: "#D89A27" }}
                 >
                     <div className="row mb-3 d-flex justify-content-center ">
                         <div className="col-xs-6">
                             <label htmlFor="name" className="col-sm-2 col-form-label fs-5 ">
-                                Name
+                                <h5>Name</h5>
                             </label>
                             <input
                                 type="text"
@@ -60,7 +60,7 @@ const Contact = (props) => {
                     <div className="row mb-3 d-flex justify-content-center">
                         <div className="col-xs-5">
                             <label htmlFor="email" className="col-sm-2 col-form-label fs-5">
-                                Email
+                                <h5>Email</h5>
                             </label>
                             <input
                                 type="email"
@@ -74,7 +74,7 @@ const Contact = (props) => {
                     <div className="row mb-3 d-flex justify-content-center">
                         <div className="col-xs-5">
                             <label htmlFor="phone" className="col-sm-2 col-form-label fs-5">
-                                PhoneNumber
+                                <h5>Contact</h5>
                             </label>
                             <input
                                 type="number"
@@ -88,8 +88,8 @@ const Contact = (props) => {
                     <div className="text-center mt-4">
                         <button
                             type="submit"
-                            className="btn btn-success w-100 my-2 py-2  fs-5 mt-4">
-                            Submit
+                            className="btn btn-outline-dark w-100 my-2 py-2  fs-5 mt-4">
+                            <h5>Submit</h5>
                         </button>
                     </div>
                 </form>
