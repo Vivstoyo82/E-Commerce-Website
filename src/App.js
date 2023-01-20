@@ -1,20 +1,23 @@
 import './App.css';
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import NavigationBar from "./Components/Navbar/Navbar";
 import ProductPage from "./Components/ProductPage/ProductPage";
 import Footer from "./Components/Footer/Footer";
 import Cart from "./Components/Cart/Cart";
 import CartProvider from './Store/CartProvider';
 import About from './Pages/About';
-import { Redirect,Route, Switch } from "react-router-dom";
+import { Redirect, Route, Switch } from "react-router-dom";
 import Home from './Pages/Home';
 import Contact from './Pages/Contact';
 import axios from 'axios';
 import ProductInfo from './Pages/ProductInfo';
+import Login from './Pages/Login';
+import CartContext from './Store/CartContext';
 
 const App = () => {
   const [cartIsShown, setCartIsShown] = useState(false);
-
+  const cartCtx = useContext(CartContext);
+  const logedIn = cartCtx.isLogedIn;
 
   const cartClickHandler = () => {
     setCartIsShown(true);
@@ -33,8 +36,8 @@ const App = () => {
 
   return (
     <div className="App" style={{ backgroundColor: "#33BCCC" }}>
-      <Switch>
-        <CartProvider >
+      <CartProvider >
+        <Switch>
           {cartIsShown && <Cart onCartClose={cartCloseHandler}></Cart>}
           <Route path="/" exact>
             <Redirect to="/store"></Redirect>
@@ -56,8 +59,14 @@ const App = () => {
           <Route path="/product_Info/:productId">
             <ProductInfo></ProductInfo>
           </Route>
-        </CartProvider>
-      </Switch>
+          <Route path="/login">
+            <Login></Login>
+          </Route>
+          <Route path="*">
+            <Redirect to="/login"></Redirect>
+          </Route>
+        </Switch>
+      </CartProvider>
     </div>
   );
 }

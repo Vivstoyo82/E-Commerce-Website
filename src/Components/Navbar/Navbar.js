@@ -5,7 +5,7 @@ import Navbar from "react-bootstrap/Navbar";
 import CartIcon from "../Cart/CartIcon";
 import "./Navbar.css";
 import CartContext from "../../Store/CartContext";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 
 const NavigationBar = (props) => {
   const cartHandler = () => {
@@ -13,6 +13,15 @@ const NavigationBar = (props) => {
   }
 
   const cartCtx = useContext(CartContext);
+
+  const isLoggedIn = cartCtx.isLoggedIn;
+  const history = useHistory();
+
+  const logoutHandler = () => {
+    cartCtx.logout();
+    history.replace("/login");
+  };
+
   let quantity = 0;
   cartCtx.products.forEach((product) => {
     quantity = quantity + (Number(product.quantity));
@@ -32,37 +41,54 @@ const NavigationBar = (props) => {
               E-Commerce
             </Navbar.Brand>
             <Nav className="ms-auto">
-              <Link
-                activeClassName="active"
-                to="/home"
-                className="me-5 nav-item fs-5 ">
-                Home
-              </Link>
-              <Link
-                activeClassName="active"
-                to="/store"
-                className="me-5 nav-item fs-5 ">
-                Store
-              </Link>
-              <Link
-                activeClassName="active"
-                to="/about"
-                className="me-5 nav-item fs-5 ">
-                About
-              </Link>
-              <Link
-                activeClassName="active"
-                to="/contact"
-                className="me-5 nav-item fs-5 ">
-                Contact Us
-              </Link>
+              {isLoggedIn && (
+                <Link
+                  activeClassName="active"
+                  to="/home"
+                  className="me-5 nav-item fs-5 ">
+                  Home
+                </Link>)}
+              {isLoggedIn && (
+                <Link
+                  activeClassName="active"
+                  to="/store"
+                  className="me-5 nav-item fs-5 ">
+                  Store
+                </Link>)}
+              {isLoggedIn && (
+                <Link
+                  activeClassName="active"
+                  to="/about"
+                  className="me-5 nav-item fs-5 ">
+                  About
+                </Link>)}
+              {isLoggedIn && (
+                <Link
+                  activeClassName="active"
+                  to="/contact"
+                  className="me-5 nav-item fs-5 ">
+                  Contact Us
+                </Link>)}
+              {!isLoggedIn && (
+                <Link
+                  activeClassName="active"
+                  to="/login"
+                  className="btn btn-light me-5 nav-item fs-5 ">
+                  Login
+                </Link>)}
             </Nav>
-            <button className="button" onClick={cartHandler}>
-              <span className="icon">
-                <CartIcon />
-              </span>
-              <div className="badge">{quantity}</div>
-            </button>
+            {isLoggedIn && (
+              <button className="button" onClick={cartHandler}>
+                <span className="icon">
+                  <CartIcon />
+                </span>
+                <div className="badge">{quantity}</div>
+              </button>)}
+            {isLoggedIn && (
+              <button className="btn btn-outline-danger mx-2" onClick={logoutHandler}>
+                Logout
+              </button>
+            )}
           </Container>
         </Navbar>
         <div

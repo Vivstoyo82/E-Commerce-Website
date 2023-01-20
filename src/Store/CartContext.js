@@ -1,8 +1,12 @@
 import React from "react";
 
 const CartContext = React.createContext({
-  productDetails : [],
+  productDetails: [],
   products: [],
+  token: "",
+  isLoggedIn: false,
+  login: (token) => {},
+  logout: () => {},
   addItem: (item) => {},
   removeItem: (id) => {},
 });
