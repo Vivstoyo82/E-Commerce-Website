@@ -17,7 +17,7 @@ import CartContext from './Store/CartContext';
 const App = () => {
   const [cartIsShown, setCartIsShown] = useState(false);
   const cartCtx = useContext(CartContext);
-  const logedIn = cartCtx.isLogedIn;
+  const isLoggedIn = cartCtx.isLoggedIn;
 
   const cartClickHandler = () => {
     setCartIsShown(true);
@@ -36,37 +36,38 @@ const App = () => {
 
   return (
     <div className="App" style={{ backgroundColor: "#33BCCC" }}>
-      <CartProvider >
-        <Switch>
-          {cartIsShown && <Cart onCartClose={cartCloseHandler}></Cart>}
-          <Route path="/" exact>
-            <Redirect to="/store"></Redirect>
-          </Route>
-          <Route path="/home">
-            <Home></Home>
-          </Route>
-          <Route path="/about">
-            <About />
-          </Route>
-          <Route path="/contact">
-            <Contact userDetail={userDetailPostHandler}></Contact>
-          </Route>
-          <Route path="/store">
-            <NavigationBar onCartClick={cartClickHandler}></NavigationBar>
-            <ProductPage openCart={cartClickHandler} />
-            <Footer />
-          </Route>
-          <Route path="/product_Info/:productId">
-            <ProductInfo></ProductInfo>
-          </Route>
-          <Route path="/login">
+      {cartCtx.cart && <Cart></Cart>}
+      <Switch>
+        <Route path="/" exact>
+          <Redirect to="/home"></Redirect>
+        </Route>
+        <Route path="/home">
+          <Home></Home>
+        </Route>
+        <Route path="/about">
+          <About />
+        </Route>
+        <Route path="/contact">
+          <Contact userDetail={userDetailPostHandler}></Contact>
+        </Route>
+        <Route path="/store">
+          <NavigationBar onCartClick={cartClickHandler}></NavigationBar>
+          <ProductPage openCart={cartClickHandler} />
+          <Footer />
+          {/* {isLoggedIn && <ProductPage></ProductPage>}
+          {!isLoggedIn && <Redirect to="/login"></Redirect>} */}
+        </Route>
+        <Route path="/product_Info/:productId">
+          <ProductInfo></ProductInfo>
+        </Route>
+        {!isLoggedIn &&
+          (<Route path="/login">
             <Login></Login>
-          </Route>
-          <Route path="*">
-            <Redirect to="/login"></Redirect>
-          </Route>
-        </Switch>
-      </CartProvider>
+          </Route>)}
+        <Route path="*">
+          <Redirect to="/"></Redirect>
+        </Route>
+      </Switch>
     </div>
   );
 }

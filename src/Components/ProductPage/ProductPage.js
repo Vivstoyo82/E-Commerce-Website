@@ -6,7 +6,8 @@ import ProductCard from "../ProductCard/ProductCard";
 import Title from "../Title/Title";
 import { Button } from "react-bootstrap";
 import CartContext from "../../Store/CartContext";
-
+import NavigationBar from "../Navbar/Navbar";
+import Footer from "../Footer/Footer";
 
 // const products = [
 //   {
@@ -48,24 +49,28 @@ import CartContext from "../../Store/CartContext";
 // ];
 
 const ProductPage = (props) => {
+  const cartCtx = useContext(CartContext);
+
   const onClickHandler = () => {
-    props.openCart();
+    // props.openCart();
+      cartCtx.cartOpen();
   };
   const ctx = useContext(CartContext);
   // console.log(ctx.productDetails)
 
   return (
     <div>
-      <div
+      {/* <div
         style={{
           height: "50px",
           backgroundColor: "#fefefe",
-        }}
-      // className="d-flex justify-content-center align-items-center"
-      >
+        }} */}
+        {/* // className="d-flex justify-content-center align-items-center" */}
+      {/* > */}
         {/* E-Commerce */}
-      </div>
+      {/* </div> */}
       <Fragment>
+        {/* <NavigationBar></NavigationBar> */}
         <Container>
           <Title >Music collections</Title>
           <Row>
@@ -75,7 +80,7 @@ const ProductPage = (props) => {
                 <Col className="d-flex justify-content-center p-5 col-md-4">
                   <ProductCard
                     key={product.id}
-                    id = {product.id}
+                    id={product.id}
                     title={product.title}
                     price={product.price}
                     imageUrl={product.imageUrl}

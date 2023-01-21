@@ -8,7 +8,7 @@ import Footer from "../Components/Footer/Footer";
 import CartContext from "../Store/CartContext";
 import { BsFillStarFill } from "react-icons/bs";
 
-const ProductInfo = () => {
+const ProductInfo = (props) => {
   const ctx = useContext(CartContext);
   const params = useParams();
 

@@ -48,10 +48,12 @@ const Cart = (props) => {
 
 
     const cartCloseHandler = () => {
-        props.onCartClose();
+        // props.onCartClose();
+        cartCtx.cartClose();
     };
     const backdropHandler = () => {
-        props.onCartClose();
+        // props.onCartClose();
+        cartCtx.cartClose();
     };
     return (
         <div>
